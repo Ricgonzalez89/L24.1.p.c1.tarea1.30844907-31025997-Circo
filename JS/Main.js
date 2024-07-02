@@ -21,20 +21,38 @@
 */
 
 import Cl_circo from "./Cl_circo.js";
+import Cl_espectador from "./Cl_espectador.js";
 
 let circo = new Cl_circo();
+const mensaje = document.getElementById("mensaje");
 
-circo.procesarEspectador();
-circo.procesarEspectador();
-circo.procesarEspectador();
-circo.procesarEspectador();
+let espectador1 = new Cl_espectador ("Ana", 8, "F");
+let espectador2 = new Cl_espectador ("Luis", 15, "M");
+let espectador3 = new Cl_espectador ("Valeria", 12, "F");
+let espectador4 = new Cl_espectador ("Fabian", 21, "M");
 
-let mensaje = document.getElementById("mensaje");
+circo.procesarEspectador(espectador1);
+
 mensaje.innerHTML = `
-<br>El espectador ${e.nombre} debe cancelar: ${e.monto}$
-<br>El espectador ${e.nombre} debe cancelar: ${e.monto}$
-<br>El espectador ${e.nombre} debe cancelar: ${e.monto}$
-<br>El espectador ${e.nombre} debe cancelar: ${e.monto}$
+<br>El espectador ${espectador1._nombre} debe cancelar: ${espectador1.calcMontTotal()}$
+`;
+
+circo.procesarEspectador(espectador2);
+
+mensaje.innerHTML += `
+<br>El espectador ${espectador2._nombre} debe cancelar: ${espectador2.calcMontTotal()}$
+`;
+
+circo.procesarEspectador(espectador3);
+
+mensaje.innerHTML += `
+<br>El espectador ${espectador3._nombre} debe cancelar: ${espectador3.calcMontTotal()}$
+`;
+
+circo.procesarEspectador(espectador4);
+
+mensaje.innerHTML += `
+<br>El espectador ${espectador4._nombre} debe cancelar: ${espectador4.calcMontTotal()}$
 <br>
 <br>Promedio de las Ventas hechas a espectadores adolescentes ${circo.calcPromedioVentAdolescente()}
 <br>Entre niños y adolescentes, el espectador que asistió más al circo fue ${circo.devolverMayorEspectador()}

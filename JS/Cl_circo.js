@@ -9,11 +9,11 @@ export default class Cl_circo{
 
     procesarEspectador(e){
         //Contar niños, adolescentes y acumular ventas a adolescentes
-        if(e.edad <= 12){
+        if(e._edad <= 12){
             this.contNiño++;
-        } else if((e.edad > 12) && (e.edad <= 18)){
+        } else if((e._edad > 12) && (e._edad <= 18)){
             this.contAdolescente++;
-            this.acumVentAdol += e.calcMontoTotal();
+            this.acumVentAdol += e.calcMontTotal();
         }
 
         //Contar espectadores totales
